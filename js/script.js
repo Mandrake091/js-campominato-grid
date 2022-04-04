@@ -39,7 +39,15 @@ function getRandomInt(min, max) {
 
 
 
+
+
+
+
+
+
 document.getElementById('play').addEventListener('click', stampareGriglia);
+
+
 
 //Stampare griglia
 function stampareGriglia() {
@@ -51,9 +59,25 @@ function stampareGriglia() {
     app.append(row)
     row.innerHTML = cols;
     cols = document.getElementsByClassName('col');
+
+    function active() {
+        let cellsBg = document.querySelectorAll('.col');
+        return cellsBg;
+    }
+    let colora = active();
+    for (let c = 0; c < colora.length; c++) {
+        let i = c;
+        colora[c].addEventListener('click', function active() {
+            colora[i].classList.add('active')
+        })
+    }
 }
 
+
 stampareGriglia();
+//////////////////
+
+//Funzione click
 
 
 
@@ -70,6 +94,7 @@ function creaColonne() {
         app = document.getElementById('app').classList.remove('hard', 'crazy');
         for (let i = 1; i <= cells; i++) {
             cols += `<div class="col col-1 debug">${i}</div>`
+
         }
         return cols;
 
@@ -80,6 +105,12 @@ function creaColonne() {
 
         for (let i = 1; i <= cells; i++) {
             cols += `<div class="col col-1 debug">${i}</div>`
+        }
+        for (let c = 0; c < cells.length; c++) {
+            let i = c;
+            cells[c].addEventListener('click', function () {
+                cells[i].classList.add('active')
+            })
         }
         return cols;
 
@@ -95,28 +126,3 @@ function creaColonne() {
         return cols;
     }
 }
-
-
-
-
-//////////////////
-//Funzione click
-
-let cells = document.querySelectorAll('.col');
-
-for (let c = 0; c < cells.length; c++) {
-    let i = c;
-    cells[c].addEventListener('click', function(){
-        cells[i].classList.add('active')
-    } )
-
-}
-
-
-console.log(cells)
-
-
-
-addEventListener('click', function () {
-
-});
