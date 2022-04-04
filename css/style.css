@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(44, 44, 44);
+    color: antiquewhite;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+#logo{
+    width: 50px;
+   
+}
+#header{
+    background-color: antiquewhite;
+    color: rgb(44, 44, 44);
+}
+#rightCol{
+    column-gap: 10px;
+}
+footer{
+    color: rgb(44, 44, 44) ;
+    background-color:antiquewhite;
+}
+
+#main{
+
+    background-color: rgb(71, 0, 0);
+}
+.debug{
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+}
