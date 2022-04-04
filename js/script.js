@@ -37,14 +37,6 @@ function getRandomInt(min, max) {
 
 
 
-
-
-
-
-
-
-
-
 document.getElementById('play').addEventListener('click', stampareGriglia);
 
 
