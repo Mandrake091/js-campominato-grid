@@ -36,88 +36,87 @@ function getRandomInt(min, max) {
 }
 
 
-const numeroColonne = 10;
 
-let difficulty = 100;
+
+
+document.getElementById('play').addEventListener('click', stampareGriglia);
 
 //Stampare griglia
 function stampareGriglia() {
-
     let app = document.getElementById('app');
     app.innerHTML = '';
-
     let row = document.createElement('div');
     row.setAttribute('class', 'row justify-content-center align-content-center');
-
-
-    let cols = creaColonne(numeroColonne);
-
-    app.innerHTML = cols;
+    let cols = creaColonne();
+    app.append(row)
+    row.innerHTML = cols;
+    cols = document.getElementsByClassName('col');
 }
+
+stampareGriglia();
+
+
 
 //Creo colonne
-
 function creaColonne() {
-    let difficulty = document.querySelector('#difficulty');
-    let play = document.querySelector('#play');
+    let cols = '';
 
-    if (difficulty.selectedIndex == 0) {
+    const difficulty = document.querySelector('#difficulty');
+    console.log(difficulty.selectedIndex)
 
-        for (let i = 0; i <= 100; i++) {
-            let cols= '';
-            cols += `<div class="col col-1 debug">${i}</div>
-        `
-            
+    if (difficulty.selectedIndex === 0) {
+        let cells = 100;
+        let app = document.getElementById('app').classList.add('easy');
+        app = document.getElementById('app').classList.remove('hard', 'crazy');
+        for (let i = 1; i <= cells; i++) {
+            cols += `<div class="col col-1 debug">${i}</div>`
         }
-        
-    }
-    play.onclick = (event) => {
-        event.preventDefault()
-        console.log(difficulty.selectedIndex)
+        return cols;
 
+    } else if (difficulty.selectedIndex === 1) {
+        let cells = 81;
+        let app = document.getElementById('app').classList.add('hard');
+        app = document.getElementById('app').classList.remove('easy', 'crazy');
+
+        for (let i = 1; i <= cells; i++) {
+            cols += `<div class="col col-1 debug">${i}</div>`
+        }
+        return cols;
+
+    } else {
+        let cells = 49;
+        let app = document.getElementById('app').classList.add('crazy');
+        app = document.getElementById('app').classList.remove;
+        ('easy', 'hard');
+
+        for (let i = 1; i <= cells; i++) {
+            cols += `<div class="col col-1 debug">${i}</div>`
+        }
+        return cols;
     }
 }
-//Creo righe
-function creaRighe(numeroRighe) {
 
-    let rows = '';
-    let numeriUsati = [];
-    while (numeriUsati.length < numeroRighe) {
-        let numeroCella = getRandomInt(0, numeroColonne);
-        if (!numeriUsati.includes(numeroCella)) {
-            numeriUsati.push(numeroCella);
-            rows += `<div class="row justify-content-center align-content-center">${numeroCella}</div>
-        `
-        }
-    }
-    return rows;
-}
 
-document.getElementById('play').addEventListener('click', stampareGriglia);
+
+
 //////////////////
+//Funzione click
 
+let cells = document.querySelectorAll('.col');
 
-document.getElementById('app').addEventListener('click', function () {
+for (let c = 0; c < cells.length; c++) {
+    let i = c;
+    cells[c].addEventListener('click', function(){
+        cells[i].classList.add('active')
+    } )
 
-
-})
-
-
-///Così funziona. Se sposto il richiamo della funzione prima, non funziona
-let miaFunzione = function () {
-    console.log('ciao')
 }
-miaFunzione();
 
 
-///Così funziona anche se la chiamo prima
-miaFunzione1();
+console.log(cells)
 
-function miaFunzione1() {
-    console.log('ciao')
-}
-/////////////
 
-let miaFunzione2 = () => 3 + 4;
-let somma = miaFunzione2();
-console.log(somma)
+
+addEventListener('click', function () {
+
+});
