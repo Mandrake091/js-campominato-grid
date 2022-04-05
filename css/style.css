@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: rgb(31, 0, 0);
+    background-color: rgb(0 21 51);
     color: antiquewhite;
     width: 100vw;
     height: 100vh;
@@ -14,11 +14,10 @@ body {
 
 #logo {
     width: 50px;
-
 }
 
 #header {
-    background-color: antiquewhite;
+    background-color: #ffffff;
     color: rgb(44, 44, 44);
 }
 
@@ -30,39 +29,28 @@ footer {
     width: 100%;
     position: fixed;
     color: rgb(44, 44, 44);
-    background-color: antiquewhite;
+    background-color: #ffffff;
     bottom: 0;
 }
 
 #main {
-    background-color: rgb(31, 0, 0);
+    background-color: rgb(0 21 51);
 }
 
-.debug {
-    width: 60px;
-    height: 60px;
+.box {
     border: 1px solid white;
     background-color: rgb(44, 44, 44);
+}
+
+
+.pointer{
     cursor: pointer;
+
+}
+.gridrow {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-#app {
-    margin: 0 auto;
-}
-
-.easy {
-    width: 600px
-}
-
-.hard {
-    width: 550px;
-}
-
-.crazy {
-    width: 450px;
-}
-
-.active {
-    color: antiquewhite;
-    background-color: rgb(6, 96, 148);
-}
